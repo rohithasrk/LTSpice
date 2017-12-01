@@ -1,0 +1,23 @@
+* Z:\home\rohith\Documents\ltspice\CourseProjectSchematic.asc
+M1 N002 N002 N001 N004 PMOS l=0.18u w=0.93u
+M2 N001 N002 N003 N005 PMOS l=0.18u w=0.93u
+M3 N001 N003 Vout N006 PMOS l=0.18u w=8.784u
+V1 N001 0 3.3V
+C1 N003 Vout 0.2827n
+M4 N009 Vin2 N003 N008 NMOS l=0.18u w=30520u
+V2 Vin2 0 SINE(1.6 -0.5u 50) AC -0.001
+M5 Vout N010 0 N011 NMOS l=0.18u w=5.04198u
+V3 N010 0 1.595V
+M6 N009 N010 0 N012 NMOS l=0.18u w=1.069u
+M7 N002 Vin1 N009 N007 NMOS l=0.18u w=30520u
+V4 Vin1 0 SINE(1.6 0.5u 50) AC 0.001
+C2 Vout 0 45p
+.model NMOS NMOS
+.model PMOS PMOS
+.lib Z:\home\rohith\Documents\ltspice\lib\cmp\standard.mos
+.model NMOS NMOS (kp=100u vt0=0.4 lambda=0.01)
+.model PMOS PMOS (kp=50u vt0=-0.4 lambda=0.015)
+.ac dec 10 1 1000000000
+.include 180nm.txt
+.backanno
+.end

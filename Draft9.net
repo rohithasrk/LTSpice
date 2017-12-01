@@ -1,0 +1,15 @@
+* Z:\home\rohith\Documents\ltspice\Draft9.asc
+V1 N003 0 V
+V2 N002 0 1.2
+V3 N001 0 1.8
+M1 N001 N003 N006 N004 NMOS l=.18u w=10u
+M2 N006 N002 Vout N005 NMOS l=.18u w=10u
+I1 N006 0 1m
+R1 N001 Vout 1k
+.model NMOS NMOS
+.model PMOS PMOS
+.lib Z:\home\rohith\Documents\ltspice\lib\cmp\standard.mos
+.include 180nm.txt
+.dc V1 0 2.5 0.01
+.backanno
+.end
